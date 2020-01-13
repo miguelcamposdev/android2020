@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">02_LoginForm</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="button_login">Iniciar sesión</string>
+    <string name="hint_name">Nombre</string>
+</resources>
