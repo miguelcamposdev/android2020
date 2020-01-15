@@ -37,5 +37,6 @@ public class MainActivity extends AppCompatActivity {
         );
 
         // Conectar el adapter a la lista
+        lvAlumnos.setAdapter(adapter);
     }
 }
