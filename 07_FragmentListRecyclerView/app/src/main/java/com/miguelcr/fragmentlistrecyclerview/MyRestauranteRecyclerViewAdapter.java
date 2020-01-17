@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.miguelcr.fragmentlistrecyclerview.dummy.DummyContent.DummyItem;
 
 import java.util.List;
@@ -36,12 +37,16 @@ public class MyRestauranteRecyclerViewAdapter extends RecyclerView.Adapter<MyRes
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.tvNombre.setText(mValues.get(position).getNombre());
-        holder.tvDireccion.setText(mValues.get(position).getDireccion());
-        holder.tvValoracion.setText(mValues.get(position).getValoracion() + " / 5");
-        holder.tvTelefono.setText(mValues.get(position).getTelefono());
+        holder.tvNombre.setText(holder.mItem.getNombre());
+        holder.tvDireccion.setText(holder.mItem.getDireccion());
+        holder.tvValoracion.setText(holder.mItem.getValoracion() + " / 5");
+        holder.tvTelefono.setText(holder.mItem.getTelefono());
 
         // Glide
+        Glide.with(ctx)
+                .load(holder.mItem.getPhotoUrl())
+                .centerCrop()
+                .into(holder.ivFoto);
 
     }
 

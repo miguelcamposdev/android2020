@@ -20,7 +20,7 @@ import java.util.List;
 public class RestauranteFragmentList extends Fragment {
 
 
-    private int mColumnCount = 2;
+    private int mColumnCount = 1;
     private IRestauranteListener mListener;
     private MyRestauranteRecyclerViewAdapter adapter;
     private List<Restaurante> restauranteList;
