@@ -48,6 +48,13 @@ public class MyRestauranteRecyclerViewAdapter extends RecyclerView.Adapter<MyRes
                 .centerCrop()
                 .into(holder.ivFoto);
 
+        holder.mView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
     }
 
     @Override
