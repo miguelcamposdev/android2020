@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements ISeleccionarFecha
     }
 
     public void mostrarCalendario(View view) {
+        // Abrir el calendario que está en el DialogoFechaFragment
         DialogFragment newFragment = DialogoFechaFragment.newInstance(this);
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
