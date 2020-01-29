@@ -28,7 +28,7 @@ public class NuevoAlumnoDialogFragment extends DialogFragment {
 
         // Hacer que el diálogo sólo se pueda cerrar desde el botón
         // Cancelar o Guardar
-        builder.setCancelable(false);
+        builder.setCancelable(true);
 
         // Cargar el layout del formulario
         v = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_nuevo_alumno, null);

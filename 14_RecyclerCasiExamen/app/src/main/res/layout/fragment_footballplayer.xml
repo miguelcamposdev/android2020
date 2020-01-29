@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="32dp">
+
+    <ImageView
+        android:id="@+id/imageViewFoto"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/textViewNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/imageViewFoto"
+        app:layout_constraintTop_toTopOf="@+id/imageViewFoto" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewNombre"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre"
+        app:srcCompat="@drawable/ic_soccer" />
+
+    <TextView
+        android:id="@+id/textViewGoles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
