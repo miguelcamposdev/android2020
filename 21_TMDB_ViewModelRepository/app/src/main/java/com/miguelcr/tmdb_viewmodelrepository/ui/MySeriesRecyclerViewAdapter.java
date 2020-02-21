@@ -15,6 +15,7 @@ import com.miguelcr.tmdb_viewmodelrepository.common.Constantes;
 import com.miguelcr.tmdb_viewmodelrepository.models.Series;
 import com.miguelcr.tmdb_viewmodelrepository.viewmodel.SeriesViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySeriesRecyclerViewAdapter extends RecyclerView.Adapter<MySeriesRecyclerViewAdapter.ViewHolder> {
@@ -61,7 +62,11 @@ public class MySeriesRecyclerViewAdapter extends RecyclerView.Adapter<MySeriesRe
     }
 
     public void setData(List<Series> list){
-        this.mValues.clear();
+        if(this.mValues != null) {
+            this.mValues.clear();
+        } else {
+            this.mValues =  new ArrayList<>();
+        }
         this.mValues.addAll(list);
         notifyDataSetChanged();
     }

@@ -30,7 +30,6 @@ public class SeriesListFragment extends Fragment {
     private SeriesViewModel seriesViewModel;
     MySeriesRecyclerViewAdapter adapter;
     RecyclerView recyclerView;
-    Observer<List<Series>> observer;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -76,19 +75,13 @@ public class SeriesListFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            observer = new Observer<List<Series>>() {
-                @Override
-                public void onChanged(List<Series> series) {
-                    adapter = new MySeriesRecyclerViewAdapter(
-                            getActivity(),
-                            series,
-                            seriesViewModel //TODO IMPORTANTE: debemos pasarle al Adapter el ViewModel
-                    );
-                    recyclerView.setAdapter(adapter);
-                }
-            };
+            adapter = new MySeriesRecyclerViewAdapter(
+                    getActivity(),
+                    null,
+                    seriesViewModel
+            );
+            recyclerView.setAdapter(adapter);
 
-            seriesViewModel.getSeries().observe(getActivity(), observer);
         }
         return view;
     }
@@ -99,13 +92,10 @@ public class SeriesListFragment extends Fragment {
         Toast.makeText(getActivity(), "onResume()", Toast.LENGTH_SHORT).show();
 
         //TODO IMPORTANTE
-        seriesViewModel.getSeries().removeObserver(observer);
-
         seriesViewModel.getSeries().observe(getActivity(), new Observer<List<Series>>() {
             @Override
             public void onChanged(List<Series> series) {
                 adapter.setData(series);
-                recyclerView.setAdapter(adapter);
             }
         });
 
