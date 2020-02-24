@@ -13,6 +13,6 @@ public interface TheMoviedbService {
     Call<PopularSeries> getPopularsSeries(@Query("page") String page);
 
     @GET("tv/{tv_id}")
-    Call<SerieDetail> getSerieDetail(@Path("tv_id") String id, @Query("append_to_response") String append);
+    Call<SerieDetail> getSerieDetail(@Path("tv_id") String id);
 
 }

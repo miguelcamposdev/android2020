@@ -1,6 +1,8 @@
 package com.miguelcr.tmdb_viewmodelrepository.retrofit;
 
+import com.miguelcr.tmdb_viewmodelrepository.R;
 import com.miguelcr.tmdb_viewmodelrepository.common.Constantes;
+import com.miguelcr.tmdb_viewmodelrepository.common.MyApp;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -45,7 +47,7 @@ public class ServiceGenerator {
                     HttpUrl originalHttpUrl = original.url();
                     HttpUrl url = originalHttpUrl.newBuilder()
                             .addQueryParameter("api_key", Constantes.API_KEY_THE_MOVIEDB)
-                            .addQueryParameter("language", "en-US")
+                            .addQueryParameter("language", MyApp.getContext().getResources().getString(R.string.idioma))
                             .build();
                     Request.Builder requestBuilder = original.newBuilder()
                             .url(url);

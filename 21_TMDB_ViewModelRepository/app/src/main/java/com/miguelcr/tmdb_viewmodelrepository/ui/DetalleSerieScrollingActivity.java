@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.miguelcr.tmdb_viewmodelrepository.R;
@@ -18,9 +19,14 @@ import com.miguelcr.tmdb_viewmodelrepository.common.Constantes;
 import com.miguelcr.tmdb_viewmodelrepository.models.SerieDetail;
 import com.miguelcr.tmdb_viewmodelrepository.viewmodel.DetalleSerieViewModel;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetalleSerieScrollingActivity extends AppCompatActivity {
     int idSerie;
     DetalleSerieViewModel detalleSerieViewModel;
+    @BindView(R.id.textViewCreatedBy) TextView tvCreatedBy;
+    @BindView(R.id.textViewDescripcionSerie) TextView tvDescripcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,9 @@ public class DetalleSerieScrollingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_serie_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // ButterKnife
+        ButterKnife.bind(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -47,14 +56,16 @@ public class DetalleSerieScrollingActivity extends AppCompatActivity {
 
         detalleSerieViewModel = new ViewModelProvider(this).get(DetalleSerieViewModel.class);
 
-        /*detalleSerieViewModel.getSerie(idSerie).observe(this, new Observer<SerieDetail>() {
+
+        detalleSerieViewModel.getSerie(idSerie).observe(this, new Observer<SerieDetail>() {
             @Override
             public void onChanged(SerieDetail serieDetail) {
-                //TODO aquí puedo setear la información de la serie
-                // en la IU del layout.
+                if(serieDetail != null) {
+                    tvCreatedBy.setText(serieDetail.getCreatedBy().get(0).getName());
+                    tvDescripcion.setText(serieDetail.getOverview());
+                }
             }
-        });*/
-
+        });
 
     }
 }

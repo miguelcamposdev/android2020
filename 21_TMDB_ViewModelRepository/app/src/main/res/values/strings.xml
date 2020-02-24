@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">TMDB_ViewModelRepository</string>
+    <string name="idioma">es-ES</string>
     <string name="title_activity_detalle_serie_scrolling">DetalleSerieScrollingActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

@@ -51,6 +51,22 @@ public class SeriesTmdbApiRepository {
     }
 
     public MutableLiveData<SerieDetail> getSerie(int idSerie) {
-        return null; //TODO terminar
+        // https://api.themoviedb.org/3/tv/456?api_key=433d2c486572afb242c6fe7c1ddc6771&language=en-US
+        final MutableLiveData<SerieDetail> data = new MutableLiveData<>();
+
+        Call<SerieDetail> call = service.getSerieDetail(String.valueOf(idSerie));
+        call.enqueue(new Callback<SerieDetail>() {
+            @Override
+            public void onResponse(Call<SerieDetail> call, Response<SerieDetail> response) {
+                data.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<SerieDetail> call, Throwable t) {
+
+            }
+        });
+        
+        return data;
     }
 }
